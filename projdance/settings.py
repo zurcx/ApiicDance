@@ -125,10 +125,10 @@ INSTALLED_APPS = (
 
     # others apps
     'south',
-    # 'bootstrap_toolkit',
+    'bootstrap_toolkit',
 
     # my apps
-    # 'core',
+    'core',
     # 'dance',
 
 )
