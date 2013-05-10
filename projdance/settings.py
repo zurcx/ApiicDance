@@ -129,7 +129,7 @@ INSTALLED_APPS = (
 
     # my apps
     'core',
-    # 'dance',
+    'dance',
 
 )
 
