@@ -22,21 +22,18 @@
 </head>
 
 <body>
+<div class="tabbable tabs-left">
+    <div class="tab-pane active" id="lA">
+      <p><ul class="nav nav-tabs">
 
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="brand" href="{% url home %}">ZuRcZ Dance</a>
-            <ul class="nav">
-                <li><a href="{% url home %}" class="">Inicio</a></li>
-                {% for cat in categories %}
-                <li><a href="{{ cat.get_absolute_url }}">{{ cat }}</a></li>
-                {% endfor %}
-
-            </ul>
-        </div>
+    {% for cat in categories %}
+    <li class="active"><a href="{{ cat.get_absolute_url }}" data-toggle="tab">{{ cat }}</a></li>
+    {% endfor %}
+  </ul></p>
     </div>
+  </div>
 </div>
+
 
 <div class="container">
 
@@ -63,3 +60,9 @@
 {% endblock %}
 </body>
 </html>
+
+
+
+
+
+<div class="container">

@@ -1,7 +1,13 @@
 # encoding: utf-8
 
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
-class HomeView(TemplateView):
+from dance.models import Rhythm
+
+class HomeView(ListView):
 
     template_name = 'home.html'
+
+    def get_queryset(self):
+        return Rhythm.objects.filter(features=True)
+

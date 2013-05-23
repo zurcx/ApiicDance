@@ -9,12 +9,21 @@ class Rhythm(models.Model):
     description = models.TextField(verbose_name=u'Descrição',
         blank=True)
 
+    photo = models.ImageField(upload_to='rhythms', verbose_name=u'Foto',
+        null=True, blank=True)
+
     created_on = models.DateTimeField(auto_now_add=True,
         verbose_name=u'Criado em')
     update_on = models.DateTimeField(auto_now=True,
         verbose_name=u'Atualizado em')
 
-    def __encoding__(self):
+    features = models.BooleanField(verbose_name="Preferidos", default=True, blank=True)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('dancestep_by_rhythm', (), {'slug': self.slug})
+
+    def __unicode__(self):
         return self.name
 
     class Meta:
@@ -46,8 +55,13 @@ class DanceStep(models.Model):
         related_name=u'level', null=True, blank=True)
     description = models.TextField(verbose_name=u'Descrição',
         blank=True)
-    dica = models.TextField(verbose_name=u'Dicas')
+    dica = models.TextField(verbose_name=u'Dicas', blank=True)
+    features = models.BooleanField(verbose_name="Preferidos", default=True, blank=True)
 
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('dancestep_details',(), {'slug': self.slug})
 
 
     def __unicode__(self):
